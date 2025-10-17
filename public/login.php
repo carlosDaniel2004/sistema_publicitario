@@ -1,7 +1,12 @@
 <?php
+// Habilitar errores para depuración
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 if (isset($_SESSION['id_usuario'])) {
-    header('Location: banners.php'); // Redirigir al panel si ya está logueado
+    header('Location: banners.php');
     exit();
 }
 require '../config/db.php';

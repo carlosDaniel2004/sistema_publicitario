@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeonatos de Fulbito - La Cancha Nos Llama</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #FF4D00; /* Naranja vibrante */
+            --secondary-color: #00C2FF; /* Azul eléctrico */
+            --accent-color: #FFD600; /* Amarillo dorado */
+            --dark-bg: #121212;
+            --light-bg: #fff9f5; /* Un fondo muy claro con un toque de naranja */
+            --text-dark: #222;
+            --text-light: #ffffff;
+            --gradient-primary: linear-gradient(45deg, var(--primary-color), #FF8C00);
+            --gradient-secondary: linear-gradient(45deg, var(--secondary-color), #0084FF);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes hero-title {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .navbar {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            background-color: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1600x800/?soccer,goal') no-repeat center center;
+            background-size: cover;
+            padding: 140px 0;
+            color: var(--text-light);
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+            animation: hero-title 1s ease-out 0.5s backwards;
+        }
+        .hero-section p {
+            animation: hero-title 1s ease-out 0.8s backwards;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .partido-card, .campeonato-card {
+            background: #ffffff;
+            border: 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        .partido-card:hover, .campeonato-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .partido-card .list-group-item-action {
+            border-bottom: 1px solid #f0f0f0 !important;
+            padding: 1.25rem;
+        }
+        .partido-card .list-group-item-action:last-child {
+            border-bottom: none !important;
+        }
+        .partido-card h5 {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        .partido-card .badge {
+            background: var(--gradient-secondary);
+            font-size: 0.9rem;
+            padding: .5em .9em;
+        }
+
+        .campeonato-card {
+            border-left: 5px solid var(--primary-color);
+        }
+        .campeonato-card .card-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        .campeonato-card .card-footer {
+            background-color: #fafcff;
+            border-top: 1px solid #f0f0f0;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: 2.5rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-trophy-fill"></i> PORTAL FULBITO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="public/login.php"><i class="bi bi-box-arrow-in-right"></i> ADMIN LOGIN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1>LA CANCHA NOS LLAMA</h1>
+            <p class="lead">Vive la emoción de los campeonatos locales. Sigue a tu equipo, consulta los resultados y no te pierdas ni un solo partido.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <!-- Sección de Próximos Partidos -->
+        <section id="proximos-partidos" class="mb-5" data-aos="fade-up">
+            <h2 class="section-title">PRÓXIMOS ENCUENTROS</h2>
+            <div class="card partido-card">
+                <div class="list-group list-group-flush" id="partidos-container">
+                    <!-- Los partidos se cargarán aquí dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Campeonatos -->
+        <section id="campeonatos-activos" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">CAMPEONATOS EN JUEGO</h2>
+            <div class="row" id="campeonatos-container">
+                <!-- Los campeonatos se cargarán aquí dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Portal Fulbito. Creado con pasión por el juego.</p>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50
+            });
+
+            const partidosContainer = document.getElementById('partidos-container');
+            const campeonatosContainer = document.getElementById('campeonatos-container');
+
+            // Cargar Próximos Partidos
+            fetch('public/api/get_partidos.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        partidosContainer.innerHTML = '<div class="list-group-item text-danger">Error al cargar partidos.</div>';
+                        return;
+                    }
+                    if (data.length > 0) {
+                        data.slice(0, 5).forEach(partido => {
+                            const item = document.createElement('a');
+                            item.href = `public/partido_detalle.php?id=${partido.id_partido}`;
+                            item.className = 'list-group-item list-group-item-action d-flex flex-wrap justify-content-between align-items-center p-3';
+                            item.innerHTML = `
+                                <div class="me-3">
+                                    <h5 class="mb-1">${partido.equipo_local} <span class="text-secondary">vs</span> ${partido.equipo_visitante}</h5>
+                                    <p class="mb-0 text-muted"><i class="bi bi-calendar-event"></i> ${new Date(partido.fecha_partido).toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' })}</p>
+                                </div>
+                                <span class="badge rounded-pill">${partido.nombre_campeonato}</span>
+                            `;
+                            partidosContainer.appendChild(item);
+                        });
+                    } else {
+                        partidosContainer.innerHTML = '<div class="list-group-item">No hay partidos programados.</div>';
+                    }
+                });
+
+            // Cargar Campeonatos
+            fetch('public/api/get_campeonatos.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        campeonatosContainer.innerHTML = '<p class="text-danger">Error al cargar campeonatos.</p>';
+                        return;
+                    }
+                    if (data.length > 0) {
+                        data.forEach((campeonato, index) => {
+                            const col = document.createElement('div');
+                            col.className = 'col-lg-4 col-md-6';
+                            col.setAttribute('data-aos', 'zoom-in');
+                            col.setAttribute('data-aos-delay', index * 100);
+                            col.innerHTML = `
+                                <div class="card campeonato-card h-100">
+                                    <div class="card-body pb-0">
+                                        <h5 class="card-title">${campeonato.nombre_campeonato}</h5>
+                                        <p class="card-text text-muted small">${campeonato.descripcion || 'Sin descripción.'}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small><i class="bi bi-flag-fill"></i> ${campeonato.fecha_inicio} / ${campeonato.fecha_fin}</small>
+                                    </div>
+                                </div>
+                            `;
+                            campeonatosContainer.appendChild(col);
+                        });
+                    } else {
+                        campeonatosContainer.innerHTML = '<p class="text-center">No hay campeonatos activos en este momento.</p>';
+                    }
+                });
+        });
+    </script>
+
+</body>
+</html>
+
